@@ -42,6 +42,7 @@ public class Transient implements Serializable{
 				new FileInputStream("Transient.txt"));
 		System.out.println("恢复 object "+new Date());
 		t = (Transient)in.readObject();
+		//输出最后password（密码）为null，不希望序列化密码
 		System.out.println("Transient t ="+t);
 	}
 }
