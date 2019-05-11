@@ -1,4 +1,4 @@
-package treadPool;
+package threadPool;
 /**
  * 将Runnable对象转变为工作任务的传统方式是把它提交给一个Thread构造器
  * @author Administrator

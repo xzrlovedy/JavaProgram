@@ -1,4 +1,4 @@
-package treadPool;
+package threadPool;
 /*
  * 测试LiftOffd的run方法，此处不是多线程，只是普通的调用
  */

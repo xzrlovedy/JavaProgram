@@ -1,4 +1,4 @@
-package treadJoining;
+package threadJoining;
 /**
  * 一个线程可以在其他线程之上调用join()方法，其效果是等待一段时间直到第二个线程结束才能继续执行
  * @author Administrator

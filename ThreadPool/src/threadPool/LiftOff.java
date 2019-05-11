@@ -1,4 +1,4 @@
-package treadPool;
+package threadPool;
 /*
  * 实现Runnable接口，重写run方法
  */
