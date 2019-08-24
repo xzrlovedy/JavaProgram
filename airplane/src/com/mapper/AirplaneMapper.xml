@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.AirplaneMapper">
+	<resultMap type="airplane" id="mymap">
+		<id column="id" property="id" />
+		<result column="time" property="time" />
+		<result column="price" property="price" />
+		<result column="airno" property="airNo"/>
+		<association property="takePort" javaType="airport">
+			<id column="takeid" property="id"/>
+			<result column="takecityname" property="cityName"/>
+			<result column="takeportname" property="portName" />
+		</association>
+		<association property="landPort" javaType="airport">
+			<id column="landid" property="id"/>
+			<result column="landcityname" property="cityName"/>
+			<result column="landportname" property="portName" />
+		</association>
+	</resultMap>
+	<!-- 两表联合查询 -->
+	<select id="selByTakeidLandid" resultMap="mymap">
+		select a.*,p.id takeid,p.portname takeportname,p.cityname takecityname,t.id landid,t.portname landportname,t.cityname landcityname
+from airplane a LEFT JOIN airport p on a.takeid=p.id 
+LEFT JOIN airport t on t.id=a.landid
+		<where>
+			<if test="takeid>0">
+				and takeid=#{takeid}
+			</if>
+			<if test="landid>0">
+				and landid=#{landid}
+			</if>
+		</where>
+	</select>
+</mapper>
