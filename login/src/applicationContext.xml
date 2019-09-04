@@ -36,6 +36,7 @@
     <bean id="mybefore" class="com.advice.MyBefore"></bean>
     <bean id="myafter" class="com.advice.MyAfter"></bean>
     <aop:config>
+    	<!-- UsersServiceImpl.login(..))作为切点 -->
     	<aop:pointcut expression="execution(* com.service.impl.UsersServiceImpl.login(..))" id="mypoint"/>
     	<aop:advisor advice-ref="mybefore" pointcut-ref="mypoint"/>
     	<aop:advisor advice-ref="myafter" pointcut-ref="mypoint"/>
